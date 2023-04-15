@@ -1,4 +1,4 @@
-# Shakespeare.ai
+# Homer.ai
 
 ## Aly Kapasi
 
@@ -7,7 +7,7 @@
 I am an avid gamer, and enjoyer of stories and media. A big issue I have is I get too drawn into the story, usually to the point of obsession. I commonly think this character is so stupid, if I was in their place I would do this differently.
 Now that powerful AI agents like ChatGPT4 and Midjourney are openly accessible, I felt like there is something that I can do.
 
-My idea is to leverage these AI agents to create a story that I can control and guide to my liking. Ideally, the AI henceforth referred to as Shakespeare will be able to do just that. Shakespeare will be able to generate completely new stories all on its own or modify existing stories from a specified point by the user. Shakespeare should also be able to take in user input as a prompt: if empty decide by itself or if a prompt is entered then it should generate according to what the user wants.
+My idea is to leverage these AI agents to create a story that I can control and guide to my liking. Ideally, the AI henceforth referred to as Homer will be able to do just that. Homer will be able to generate completely new stories all on its own or modify existing stories from a specified point by the user. Homer should also be able to take in user input as a prompt: if empty decide by itself or if a prompt is entered then it should generate according to what the user wants.
 
 ### Implentation Checklist
 
