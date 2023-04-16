@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    background-color: #174022;
+    color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    margin-bottom: 30px;
+  }
+  
+  button {
+    background-color: #174022;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #1B30E5;
+  }
+  
+  #responseContainer {
+    border: 1px solid #000000;
+    padding: 20px;
+  }
+  
+  pre {
+    white-space: pre-wrap;
+  }
+  
