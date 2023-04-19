@@ -4,7 +4,6 @@ import os
 import openai
 
 def determine_mode():
-
     while True:
         mode = input("Please enter:\n\
                      1) If you would like to generate a new story line\n\
@@ -36,28 +35,40 @@ def create_story():
     logs = []
     pass
 
+
 def modify_story():
-    story_name = None
+    story_name = story_loc = None
     while True:
         story = input("What story would you like to modify?:\n")
         ## check if the story exists with the openai api
         ## if yes the break, else prompt for a known story
         msg1 = {'role': 'user', 'content': f'if you know about a story titled: {story} then return 1, else return 0'}
-        verify = openai.ChatCompletion.create(
+        verify1 = openai.ChatCompletion.create(
             model='gpt-3.5-turbo',
             messages=msg1,
             temperature=0,
             max_tokens=1,
             )
-        if verify.choices[0].message['content'] == '1':
+        if verify1.choices[0].message['content'] == '1':
             story_name = story
             break
         else:
             print("Sorry, I don't know it, please try again.")
     
     while True:
-        story_loc = input("What part of the story would you like to modify?:\n ")
-        msg2 = {'role': 'user', 'content': f'is {story_loc} in the {story_name}?'}
+        loc = input("What part of the story would you like to modify?:\n ")
+        msg2 = {'role': 'user', 'content': f'is {loc} in the {story_name}? if yes then return 1, else return 0'}
+        verify2 = openai.ChatCompletion.create(
+            model='gpt-3.5-turbo',
+            messages=msg1,
+            temperature=0,
+            max_tokens=1,
+            )
+        if verify2.choices[0].message['content'] == '1':
+            story_loc = loc
+            break
+        else:
+            print("Sorry, I don't think that happens in the story, please input a different point.\n")
 
 
 def continue_story():
