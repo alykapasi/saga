@@ -76,7 +76,7 @@ def continue_story():
 
 if __name__ == "__main__":
     ## get the api key from the .env file
-    openai.api_key = os.getenv('OPENAI_API_KEY')
+    openai.api_key = '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'
     mode = determine_mode()
     match mode:
         case 1:

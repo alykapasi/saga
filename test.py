@@ -1,11 +1,11 @@
 import os
 import openai
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 # First determine whether the user wants to modify a story
 # or create on from scratch
-starting_message = [{'role': 'user', 'content': 'Hello!'}]
+starting_message = [{'role': 'user', 'content': 'If you know about a story titled: \'Humpty Dumpty\' return 1, else return 0!'}]
 
 completion = openai.ChatCompletion.create(
     model='gpt-3.5-turbo',
