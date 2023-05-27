@@ -1,65 +1,82 @@
-import os
+## main
 import openai
 from src import *
 
+openai.api_key = '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'
+
 if __name__ == '__main__':
-    openai.api_key = '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'
-    print(choices)
+    n = choose_story()
+    # in beta version force the user to be narrator expand later
+    role =  1
+    story_name = choice_list[n-1]
+    user_role = role_list[role-1]
 
-    while True:
-        choice = input('Which story would you like to choose?: ')
-        try:
-            choice = int(choice)
-            if 1 <= choice <= 23:
-                break
-            else:
-                print('Please input a number between 1-23...\n')
-        except:
-            print('Please input a number between 1-23...\n')
+    prompt = f'You will be a story-telling/modifying AI\
+        the story will be {story_name} and the user will assume {user_role}\
+        role. I want you to give a brief outline of the main points\
+        in the story in a list format, so the user can choose where\
+        they want to start the story. The user will be prompted for\
+        decisions at crucial points in the story, and you will alter\
+        the story based on the decisions. The user will be able to\
+        change the story based on their own ideas. Only return a list\
+        with the major points in the story the list should be exactly\
+        10 points long.'
 
-    chosen = choice_list[choice-1]
-
-    ## initial prompt: guide the AI to be better suited to the task and choose a story and return a brief synopsis
-    guide = 'I want you to be a story telling AI, and modify the story of {}\
-            to my liking. Firstly, give me a brief summary of the story'\
-            .format(chosen)
+    prompts = [{'role':'user', 'content':prompt}]
+    print(f'You are a {user_role} in {story_name}.')
     
-    prompts = [{'role':'user', 'content': guide}]
-    gpt = openai.ChatCompletion.create(
+    homer = openai.ChatCompletion.create(
         model = 'gpt-3.5-turbo',
         messages = prompts,
         temperature = 0.0,
+        max_tokens = 360,
     )
+    output = homer.choices[0].message['content']
+    print(output)
+    prompts.append({'role':'assistant', 'content':output})
 
-    ## print the response
-    print(gpt.choices[0].message['content'])
-    prompts.append({'role':'ai', 'content':gpt.choices[0].message['content']})
-
-    ## second prompt: choose the role user wants to play
     while True:
-        choice = input('Please choose your role:\n\ 1. Narrator\n\ 2. Character\n')
         try:
-            if choice == '1':
-                role = 'narrator'
-                break
-            elif choice == '2':
-                role = 'character'
-                ch = input('What character would you like to be?: ')
+            entry_point = int(input('Enter the number of the point in the story you would like to start at: '))
+            if entry_point in range(1,11):
                 break
             else:
-                print('invalid choice...\n')
+                print('Invalid entry, try again.')
         except:
-            print('invalid choice...\n')
+            print('Invalid entry, try again.')
 
-    ## third prompt: choose where they wish to continue the story from
-    locn = input('Where in the story would you like to start from?: ')
+    prompt = f'You will start at point {entry_point}, provide a detailed description of the point in the story.\
+        Try to stay as close to the written part of the story as possible, the ideal response should be about a\
+        a paragraph long. Then prompt the user as to what decision they should take, leave it open-ended,\
+        but provide guidance as to what directions they can take.'
 
-    guide_followup_ch = 'I will assume the role of a character named: '.format()
-
-    prompts.append({'role':'user', 'content':''})
-
-    gpt = openai.ChatCompletion.create(
+    prompts.append({'role':'user', 'content':prompt})
+        
+    homer = openai.ChatCompletion.create(
         model = 'gpt-3.5-turbo',
         messages = prompts,
         temperature = 0.0,
+        max_tokens = 360,
     )
+    output = homer.choices[0].message['content']
+    prompts.append({'role':'assistant', 'content':output})
+    print('\n' + output)
+
+    while True:
+        user_prompt = input('> ')
+        if user_prompt == '\\!q':
+            print('\nThe End.\nGoodbye!')
+            break
+        else:
+            prompts.append({'role':'user', 'content':user_prompt})
+            homer = openai.ChatCompletion.create(
+                model = 'gpt-3.5-turbo',
+                messages = prompts,
+                temperature = 1.0,
+                max_tokens = 500,
+            )
+            output = homer.choices[0].message['content']
+            prompts.append({'role':'assistant', 'content':output})
+            print('\n' + output)
+
+    print('Thank You for your using Homer.ai')

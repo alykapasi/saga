@@ -51,7 +51,8 @@ role_list = ['Narrator', 'Existing Character', 'New Character']
 
 def choose_story() -> int:
     while True:
-        choice = input('Which story would you like to choose?: ')
+        print(choices)
+        choice = input()
         try:
             choice = int(choice)
             if choice in range(1,24):
@@ -64,9 +65,18 @@ def choose_story() -> int:
 
 def choose_role() -> int:
     while True:
-        choice = input('Which role would you like?:\n1. Narrator\n\
-                       2. Existing Character\n3. New Character')
+        print('Which role would you like?:\n\
+              1. Narrator\n\
+              2. Existing Character\n\
+              3. New Character\n')
+        
+        choice = input()
         try:
             choice = int(choice)
-            if choice in range(1,3):
-                print(f'\nYou chose the')
+            if choice in range(1,4):
+                print(f'\nYou chose the {role_list[choice-1]} role\n')
+                return choice
+            else:
+                print('Please input a number between 1-3...\n')
+        except:
+            print('Please input a number between 1-3...\n')
