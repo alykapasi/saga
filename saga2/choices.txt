@@ -1,0 +1,5 @@
+Implementation Decisions:
+
+1. Create the story points myself, or have the AI model generate it
+2. Allow user to decide where the story starts, or force them through an entire walkthrough (include a default storyline option)
+3. Should I use CoT or TT (Chain-of-Thought or Thought-Tree Implementation)

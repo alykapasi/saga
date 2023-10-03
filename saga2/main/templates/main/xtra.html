@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+    <h1>{{ name }}</h1>
+
+    {% comment %}
+
+        chat log
+
+    {% endcomment %}
+
+    <div id="chat-log" class="mb-4 flex justify-center border border-gray-300 p-4">
+        <h3>Chat Log</h3>
+        <!-- Use CSS|JavaScript to dynamically update the chat log -->
+    </div>
+
+    <div class="mb-4 flex justify-center">
+        <input type="text" id="query-input" style="width: 500px; height: 200px;" class="border border-gray-300 rounded-md p-2" />
+    </div>
+    
+    <div class="mb-4 flex justify-center">
+        <button id="submit-btn" class="border border-gray-300 px-4 py-2">Submit</button>
+        <button id="save-btn" class="border border-gray-300 px-4 py-2">Save Conversation</button>
+    </div>
+    
+{% endblock %}

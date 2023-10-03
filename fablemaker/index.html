@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>homer.ai</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+
+    <script>
+        // JavaScript code for loading your React app
+        // Add your code here
+    </script>
+
+    <script>
+        // JavaScript code for interacting with the chatbot API
+        // Add your code here
+    </script>
+
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl mb-4">Welcome to homer.ai!</h1>
+
+        <!-- Dropdown menu for story selection -->
+        <label for="story-select" class="mr-2">Select a Story:</label>
+        <select id="story-select" class="mb-4">
+            <option value="story1">Alice in Wonderland</option>
+            <option value="story2">Beauty and the Beast</option>
+            <option value="story3">Christmas Carol</option>
+            <option value="story3">Cinderella</option>
+            <option value="story3">Snow White and the Seven Dwarfs</option>
+            <option value="story3">Little Red Riding Hood</option>
+            <option value="story3">Sleeping Beauty</option>
+            <option value="story3">Rapunzel</option>
+            <option value="story3">Rumpelstiltskin</option>
+            <option value="story3">Jack and the Beanstalk</option>
+            <option value="story3">The Legend of the Sleepy Hollow</option>
+            <option value="story3">Peter Pan</option>
+            <option value="story3">Phantom of the Opera</option>
+            <option value="story3">Winnie the Pooh</option>
+            <option value="story3">The Wizard of Oz</option>
+            <option value="story3">Treasure Island</option>
+            <option value="story3">The Little Mermaid</option>
+            <option value="story3">The Ugly Duckling</option>
+            <option value="story3">Thumbelina</option>
+            <option value="story3">Hansel and Gretel</option>
+            <option value="story3">The Emperor's New Suite</option>
+            <option value="story3">Puss in Boots</option>
+            <option value="story3">Goldilocks</option>
+            <!-- Add more story options as needed -->
+        </select>
+    </div>
+
+    <!-- Log of prompts and responses -->
+    <div id="chat-log" class="mb-4 flex justify-center border border-gray-300 p-4">
+        <h3>Chat Log</h3>
+        <!-- Use JavaScript to dynamically update the chat log -->
+    </div>
+    
+    <!-- Text box for user input -->
+    <div class="mb-4 flex justify-center">
+        <input type="text" id="query-input" style="width: 500px; height: 200px;" class="border border-gray-300 rounded-md p-2" />
+    </div>
+    
+    <!-- Button to submit user query -->
+    <div class="mb-4 flex justify-center">
+        <button id="submit-btn" class="border border-gray-300 px-4 py-2">Submit</button>
+    </div>
+    
+    <!-- Button to save conversation -->
+    <div class="flex justify-center">
+        <button id="save-btn">Save Conversation</button>
+    </div>
+</div>
+</body>
+</html>

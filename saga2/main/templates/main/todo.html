@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Planned Features{% endblock %}
+
+{% block content %}
+
+<head>
+    <title>To-Do List</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<h1>Feature Timeline</h1>
+
+<div class="container">
+    <div>
+        <h2>Planned</h2>
+        <ul>
+            <li>Implement a nice UI</li>
+            <li>Add a summarise feature</li>
+            <li>Implement some diffusion model that can create relevant images with the prompt</li>
+            <li>Unique usernames</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>In Progress</h2>
+        <ul>
+            <li>Implement AI Agent</li>
+            <li>Fix the profile page</li>
+            <li>Add some basic settings in the story creation phase</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Completed</h2>
+        <ul>
+            <li>Create necessary pages</li>
+            <li>Initialize a registration functionality</li>
+            <li>Set up login/logout authorization</li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
