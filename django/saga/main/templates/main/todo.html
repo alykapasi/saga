@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Planned Features{% endblock %}
+
+{% block content %}
+
+<h1>To-Do List</h1>
+
+{% if user.is_superuser %}
+
+<form action="/to-do-list/add" method="post">
+
+  <input type="text" name="task" placeholder="Enter a new task">
+
+  <input type="submit" value="Add Task">
+
+</form>
+
+{% endif %}
+
+<ul>
+
+{% for task in tasks %}
+  {% if task.state == 'completed' %}
+    <h3>Completed</h3>
+    <li class="completed">{{ task.task }}</li>
+  {% elif task.state == 'in progress' %}
+    <h3>In Progress</h3>
+    <li class="in-progress">{{ task.task }}</li>
+  {% else %}
+    <h3>Planned</h3>
+    <li class="planned">{{ task.task }}</li>
+  {% endif %}
+{% endfor %}
+
+</ul>
+
+{% endblock %}

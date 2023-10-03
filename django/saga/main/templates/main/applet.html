@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container mx-auto p-8">
+        <h2 class="text-3xl mb-4">welcome to saga.ai!</h2>
+
+        <!-- Dropdown menu for story selection -->
+        <label for="story-select" class="mr-2">Select a Story:</label>
+        <select id="story-select" class="mb-4">
+            <option value="story1">Alice in Wonderland</option>
+            <option value="story2">Beauty and the Beast</option>
+            <option value="story3">Christmas Carol</option>
+            <option value="story4">Cinderella</option>
+            <option value="story5">Snow White and the Seven Dwarfs</option>
+            <option value="story6">Little Red Riding Hood</option>
+            <option value="story7">Sleeping Beauty</option>
+            <option value="story8">Rapunzel</option>
+            <option value="story9">Rumpelstiltskin</option>
+            <option value="story10">Jack and the Beanstalk</option>
+            <option value="story11">The Legend of the Sleepy Hollow</option>
+            <option value="story12">Peter Pan</option>
+            <option value="story13">Phantom of the Opera</option>
+            <option value="story14">Winnie the Pooh</option>
+            <option value="story15">The Wizard of Oz</option>
+            <option value="story16">Treasure Island</option>
+            <option value="story17">The Little Mermaid</option>
+            <option value="story18">The Ugly Duckling</option>
+            <option value="story19">Thumbelina</option>
+            <option value="story20">Hansel and Gretel</option>
+            <option value="story21">The Emperor's New Suit</option>
+            <option value="story22">Puss in Boots</option>
+            <option value="story23">Goldilocks</option>
+            <!-- Add more story options as needed -->
+        </select>
+    </div>
+
+    <div id="chat-log" class="mb-4 flex justify-center border border-gray-300 p-4">
+        <h3>Chat Log</h3>
+        <!-- Use Python(ideally) or JavaScript to dynamically update the chat log -->
+    </div>
+
+    <!-- Text box for user input -->
+    <div class="mb-4 flex justify-center">
+        <input type="text" id="query-input" style="width: 500px; height: 200px;" class="border border-gray-300 rounded-md p-2 query-input" />
+    </div>
+    
+    <!-- Button to submit user query -->
+    <div class="mb-4 flex justify-center">
+        <button id="submit-btn" class="border border-gray-300 px-4 py-2">Submit</button>
+        <button id="save-btn" class="border border-gray-300 px-4 py-2">Save Conversation</button>
+    </div>
+{% endblock %}

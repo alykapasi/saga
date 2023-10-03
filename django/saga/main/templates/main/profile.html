@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="profile-header">
+  <img src="{{ user.profile_pic.url }}" alt="Profile photo">
+  <h1>{{ user.username }}</h1>
+</div>
+<div class="profile-info">
+  <ul>
+    <li><strong>Email:</strong> {{ user.email }}</li>
+    <li><strong>Username:</strong> {{ user.username }}</li>
+    <li><strong>Bio:</strong> {{ user.bio }}</li>
+  </ul>
+</div>
+<div class="profile-actions">
+  <a href>Edit profile<br></a>
+  <a href="/logout">Logout</a>
+</div>
+{% else %}
+<p>You must be logged in to view your profile.</p>
+{% endif %}
+{% endblock %}
