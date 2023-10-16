@@ -16,7 +16,7 @@ const {
     updateMessage
 } = require('../controllers/messageController');
 
-// create new story
+// route to create new story
 router.route('/new')
 .post(startStory);
 
