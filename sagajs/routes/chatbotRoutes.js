@@ -2,12 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    startStory,
-    getStories,
-    getStory,
-    saveStory,
-    summarizeStory,
-    deleteStory
+    startSession,
+    getSession,
+    getSessionById,
+    renameSession,
+    deleteSession
 } = require('../controllers/sessionController');
 
 const {
@@ -18,20 +17,20 @@ const {
 
 // route to create new story
 router.route('/new')
-.post(startStory);
+.post(startSession);
 
 router.route('/saves')
-.get(getStories);
+.get(getSession);
 
 // save, resume a story
 router.route('/:session_id')
-.put(saveStory)
-.get(getStory)
-.delete(deleteStory);
+.get(getSessionById)
+.delete(deleteSession)
+.post(renameSession);
 
 // summarize a story based on session id
-router.route('/:session_id/summarize')
-.get(summarizeStory);
+// router.route('/:session_id/summarize')
+// .get(summarizeStory);
 
 // rewind to a certain message
 router.route('/rewind/:message_id')

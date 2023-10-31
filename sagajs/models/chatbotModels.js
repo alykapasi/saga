@@ -41,10 +41,6 @@ const MessageSchema = new Schema({
         type: String,
         required: [true, 'Please insert output'],
     },
-    response: {
-        type: String,
-        required: [true, 'Please input the generated output'],
-    },
     choices: {
         type: [String],
         required: false,

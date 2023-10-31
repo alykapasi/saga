@@ -8,3 +8,13 @@ const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
+
+const createMessage = asyncHandler(async (req, res) => {
+    try {
+        // logic
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: 'Error in creating message' }); 
+    }
+});
